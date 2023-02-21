@@ -45,8 +45,35 @@ h1 {
     jusify-content: space-evenly;
 }
 
+.footer {
+    position: fixed;
+    bottom: 5px;
+    right: auto;
+    left: auto;
+}
+
+/*Style the Submit Button to be wide*/
 #submit {
-    width: 790px;
+    width: 780px;
+    margin: 5px;
+}
+
+/*Style main content*/
+#main-content {
+    display: flex;
+    flex-direction: row;
+}
+
+/*Style the simulated terminal*/
+#terminal {
+    display: none;
+    background-color: black;
+    font-family: monospace;
+    color: var(--text-color);
+    height: auto;
+    width: 400px;
+    margin: 5px;
+    padding: 5px;
 }
 
 /*Horizontal bar styles*/
