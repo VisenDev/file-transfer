@@ -1,83 +1,119 @@
 
+/*Variables*/
+:root {
+    --text-color: #adadad;
+    --bg-color: #3D3D3D;
+    --highlight-color: #4D4D4D;
+    --inset-color:  #2D2D2D;
+    --bright: #00cec9;
+}
+
 body {
-    background-color: #3D3D3D;
-    font-family: Verdana, sans-serif;
+    background-color: var(--bg-color);
+    font-family: AvantGarde, sans-serif;
     color: #0A0A0A;
+    max-width: 800px;
+    border-left: 2px solid var(--highlight-color);
+    border-right: 2px solid var(--highlight-color);
+    margin: auto;
+    margin-bottom: 0px;
+    height: 100%;
+    min-height: 100%;
 }
 
+html {
+    background-color: var(--inset-color);
+    height: 100%;
+}
+
+/*set default color for text*/
 .text {
-    color: #F4F4F4;
+    color: var(--text-color);
 }
 
-.input {
+/*format title*/
+h1 {
     margin: 5px;
     padding: 5px;
-    border: 2px solid #F4F4F4;
+    color: var(--text-color);
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    jusify-content: space-evenly;
+}
+
+#submit {
+    width: 790px;
+}
+
+/*Horizontal bar styles*/
+hr {
+    border-color: var(--text-color);
+}
+
+/*Stylize input class*/
+.input {
+    color: var(--text-color);
+    margin: 5px;
+    padding: 5px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
 }
 
-/* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+input[type="button"]:hover {
+  border: 2px solid #00cec9;
 }
 
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+/*General input styling*/
+input {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 5px;
+    transition: 1s;
 }
 
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+/*Add styles to file input box*/
+input[type="file"]::file-selector-button {
+  border-radius: 0.2em;
+  background-color: var(--bg-color);
+  transition: 1s;
+  color: var(--text-color);
 }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+input[type="file"]::file-selector-button:hover {
+  background-color: var(--highlight-color);
+  border: 2px solid #00cec9;
 }
 
-input:checked + .slider {
-  background-color: #2196F3;
+/* Hide the tab content by default */
+.tabcontent {
+  display: none;
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+/*set download to visible by default*/
+#tab1 {
+    display:block;
 }
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+/* Create an active/current tablink class */
+.tablinks.active {
+    background-color: var(--inset-color);
+    border-style: inset;
 }
 
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
+.tabcontent {
+    margin: 5px;
+    padding: 5px;
 }
 
-.slider.round:before {
-  border-radius: 50%;
+/*Tab button Stylings*/
+.tablinks {
+    transition: 0s;
+    border-style: outset;
 }
+
