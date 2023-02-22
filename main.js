@@ -7,14 +7,8 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true,
-      
-/* Style the tab content */
-.tabcontent {
-  padding: 20px;
-  border: 1px solid #ccc;
-}
-contextIsolation: false,
+        nodeIntegration: true,
+        contextIsolation: false,
     }
   })
 

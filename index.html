@@ -54,27 +54,27 @@
             <div id="tab1" class="tabcontent">
                 <div class="input">
                     <p class="text">Enter Server Address</p>
-                    <input type="text" placeholder="file-location.io" id="server">
+                    <input type="text" placeholder="file-location.com" id="server">
                 </div>
                 
                 <div class="input">
                     <p class="text">Enter Username</p>
-                    <input type="text" placeholder=user-id id="username">
+                    <input type="text" placeholder="user-id" id="username">
                 </div>
 
                 <div class="input">
                     <p class="text">Enter Password</p>
-                    <input type="password" id="password">
+                    <input type="password" placeholder="password" id="password">
                 </div>
 
                 <div class="input">
                     <p class="text">Enter Path to File(s)</p>
-                    <input type="text" value="csunix.angelo.edu" id="filepath">
+                    <input type="text" id="files">
                 </div>
 
                 <div class="input">
                     <p class="text">Select Download Destination</p>
-                    <input type="file" id="filepath" multiple="multiple">
+                    <input type="file" id="destination" multiple="multiple">
                 </div>
 
             </div>
@@ -82,27 +82,27 @@
             <div id="tab2" class="tabcontent">
                 <div class="input">
                     <p class="text">Enter Server Address</p>
-                    <input type="text" value="csunix.angelo.edu" id="server">
+                    <input type="text" placeholder="file-location.com" id="u-server">
                 </div>
                 
                 <div class="input">
                     <p class="text">Enter Username</p>
-                    <input type="text" value="csunix.angelo.edu" id="username">
+                    <input type="text" placeholder="user-id" id="u-username">
                 </div>
 
                 <div class="input">
                     <p class="text">Enter Password</p>
-                    <input type="text" value="csunix.angelo.edu" id="password">
+                    <input type="password" placeholder="password" id="u-password">
                 </div>
 
                 <div class="input">
                     <p class="text">Select File(s) to Upload</p>
-                    <input type="file" id="filepath" multiple="multiple">
+                    <input type="file" id="u-files" multiple="multiple">
                 </div>
 
                 <div class="input">
                     <p class="text">Enter Path to Destination</p>
-                    <input type="text" value="csunix.angelo.edu" id="filepath">
+                    <input type="text" id="u-destination">
                 </div>
 
             </div>
@@ -119,6 +119,11 @@
         <div class="input">
           <input type="button" value="Submit" id="submit"/>
         </div>
+
+        <script src="./scp.js">
+            require("./scp.js");
+        </script>
+
 
     </div>
   </body>

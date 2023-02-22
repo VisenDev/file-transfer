@@ -4,14 +4,13 @@
   "description": "A simple application for downloading files from a remote server",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ."
   },
   "author": "VisenDev",
   "license": "ISC",
-  "scripts": {
-    "start": "electron ."
+  "dependencies": {
+    "node-scp": "^0.0.22"
   },
-  "dependencies": {},
   "devDependencies": {
     "electron": "5.0.0-beta.7"
   }
