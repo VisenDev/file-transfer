@@ -1,5 +1,6 @@
-const fs = require('fs');
+/*const fs = require('fs');
 const {Client} = require('node-scp');
+const path = require('path')
 
 console.log(Client);
 
@@ -43,11 +44,13 @@ document.getElementById('submit').onclick = function () {
   const username = document.getElementById('u-username').value;
   const password = document.getElementById('u-password').value;
 
+  if(mode == "upload")
+  //document.getElementById("myFile").files[0].path
   uploadFiles(filepaths, remoteDirectory, remoteServer, username, password);
-};
+};*/
 
 
-uploadFiles('./test.txt', 'test.txt', 'csunix.angelo.edu', 'rburnett5', 'JohnSmith_8080');
+//uploadFiles(, 'test.txt', 'csunix.angelo.edu', 'rburnett5', 'JohnSmith_8080');
 
 
 

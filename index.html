@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,6 +6,8 @@
     <title>music-player</title>
     <link rel="stylesheet" type="text/css" href="./styles.css">
     <script>
+        let mode = "download";
+
         function openTab(evt, tabName) {
           var i, tabcontent, tablinks;
           tabcontent = document.getElementsByClassName("tabcontent");
@@ -15,8 +18,9 @@
           for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
           }
-          document.getElementById(tabName).style.display = "block";
+          document.getElementById(tabName).style.display = "flex";
           evt.currentTarget.className += " active";
+          mode = mode == "download" ? "upload" : "download";
         }
     </script>
   </head>
@@ -44,74 +48,55 @@
     </div>
 
     <hr>
-    <div id="main-content">
-        <div class="tab">
-            <div class=input>
-               <input type="button" class="tablinks active" onclick="openTab(event, 'tab1')" value="Download">
-               <input type="button" class="tablinks" onclick="openTab(event, 'tab2')" value="Upload">
-            </div>
 
-            <div id="tab1" class="tabcontent">
-                <div class="input">
-                    <p class="text">Enter Server Address</p>
-                    <input type="text" placeholder="file-location.com" id="server">
-                </div>
-                
-                <div class="input">
-                    <p class="text">Enter Username</p>
-                    <input type="text" placeholder="user-id" id="username">
-                </div>
-
-                <div class="input">
-                    <p class="text">Enter Password</p>
-                    <input type="password" placeholder="password" id="password">
-                </div>
-
-                <div class="input">
-                    <p class="text">Enter Path to File(s)</p>
-                    <input type="text" id="files">
-                </div>
-
-                <div class="input">
-                    <p class="text">Select Download Destination</p>
-                    <input type="file" id="destination" multiple="multiple">
-                </div>
-
-            </div>
-
-            <div id="tab2" class="tabcontent">
-                <div class="input">
-                    <p class="text">Enter Server Address</p>
-                    <input type="text" placeholder="file-location.com" id="u-server">
-                </div>
-                
-                <div class="input">
-                    <p class="text">Enter Username</p>
-                    <input type="text" placeholder="user-id" id="u-username">
-                </div>
-
-                <div class="input">
-                    <p class="text">Enter Password</p>
-                    <input type="password" placeholder="password" id="u-password">
-                </div>
-
-                <div class="input">
-                    <p class="text">Select File(s) to Upload</p>
-                    <input type="file" id="u-files" multiple="multiple">
-                </div>
-
-                <div class="input">
-                    <p class="text">Enter Path to Destination</p>
-                    <input type="text" id="u-destination">
-                </div>
-
-            </div>
+    <div class="tab">
+        <div class=input>
+            <input type="button" class="tablinks active" onclick="openTab(event, 'tab1')" value="Download">
+            <input type="button" class="tablinks" onclick="openTab(event, 'tab2')" value="Upload">
         </div>
 
-        <div id="terminal">
-        <div>
+        <div class="input">
+            <p class="text">Enter Server Address</p>
+            <input type="text" placeholder="file-location.com" id="server">
+        </div>
+        
+        <div class="input">
+            <p class="text">Enter Username</p>
+            <input type="text" placeholder="user-id" id="username">
+        </div>
+
+        <div class="input">
+            <p class="text">Enter Password</p>
+            <input type="password" placeholder="password" id="password">
+        </div>
     </div>
+
+    <div class="tab">
+        <div id="tab1" class="tabcontent">
+            <div class="input">
+                <p class="text">Enter Path to File(s)</p>
+                <input type="text" id="files">
+            </div>
+
+            <div class="input">
+                <p class="text">Select Download Destination</p>
+                <input type="file" id="destination" multiple="multiple">
+            </div>
         </div>
+
+        <div id="tab2" class="tabcontent">
+            <div class="input">
+                <p class="text">Select File(s) to Upload</p>
+                <input type="file" id="u-files" multiple="multiple">
+            </div>
+
+            <div class="input">
+                <p class="text">Enter Path to Destination</p>
+                <input type="text" id="u-destination">
+            </div>
+
+        </div>
+    </div>
 
         
     <div class="footer">

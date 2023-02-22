@@ -45,35 +45,8 @@ h1 {
     jusify-content: space-evenly;
 }
 
-.footer {
-    position: fixed;
-    bottom: 5px;
-    right: auto;
-    left: auto;
-}
-
-/*Style the Submit Button to be wide*/
 #submit {
-    width: 780px;
-    margin: 5px;
-}
-
-/*Style main content*/
-#main-content {
-    display: flex;
-    flex-direction: row;
-}
-
-/*Style the simulated terminal*/
-#terminal {
-    display: none;
-    background-color: black;
-    font-family: monospace;
-    color: var(--text-color);
-    height: auto;
-    width: 400px;
-    margin: 5px;
-    padding: 5px;
+    width: 790px;
 }
 
 /*Horizontal bar styles*/
@@ -90,6 +63,7 @@ hr {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    margin-left: 10px;
 }
 
 input[type="button"]:hover {
@@ -117,9 +91,14 @@ input[type="file"]::file-selector-button:hover {
   border: 2px solid #00cec9;
 }
 
+/* Hide the tab content by default */
+.tabcontent {
+  display: none;
+}
+
 /*set download to visible by default*/
 #tab1 {
-    display:block;
+    display:flex;
 }
 
 /* Create an active/current tablink class */
@@ -129,9 +108,9 @@ input[type="file"]::file-selector-button:hover {
 }
 
 .tabcontent {
-    display: none;
     margin: 5px;
     padding: 5px;
+    flex-direction: column;
 }
 
 /*Tab button Stylings*/
@@ -139,4 +118,5 @@ input[type="file"]::file-selector-button:hover {
     transition: 0s;
     border-style: outset;
 }
+
 
