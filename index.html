@@ -20,8 +20,14 @@
           evt.currentTarget.className += " active";
           document.getElementById("upload-or-download").textContent = document.getElementById("upload-or-download").textContent == "download" ? "upload" : "download";
         }
+
+        function handleFolderSelect() {
+            document.getElementById("download-destination").textContent = path.dirname(document.getElementById("d-destination").files[0].path);
+            console.log(document.getElementById("download-destination").textContent);
+        }
     </script>
    <div id="upload-or-download" style="display: none;">download</div>
+   <div id="download-destination" style="display: none;">download</div>
   </head>
   <body>
     <div id="header">
@@ -52,11 +58,14 @@
         <div class=input>
             <input type="button" class="tablinks active" onclick="openTab(event, 'tab1')" value="Download">
             <input type="button" class="tablinks" onclick="openTab(event, 'tab2')" value="Upload">
+
+            <p class="text" id="terminal" style="margin-left: 15px;"></p>
         </div>
 
         <div class="input">
             <p class="text">Enter Server Address</p>
             <input type="text" placeholder="file-location.com" id="server">
+
         </div>
         
         <div class="input">
@@ -78,8 +87,8 @@
             </div>
 
             <div class="input">
-                <p class="text">Select Download Destination</p>
-                <input type="file" id="d-destination" multiple="multiple">
+                <p class="text">Select Download Destination </p>
+                <input type="file" id="d-destination" placeholder="" value="Choose folder" webkitdirectory directory multiple onchange="handleFolderSelect()">
             </div>
         </div>
 
@@ -107,8 +116,6 @@
         <script src="./scp.js">
             require("./scp.js");
         </script>
-
-
     </div>
   </body>
 </html>
