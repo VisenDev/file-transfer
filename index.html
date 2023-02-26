@@ -6,8 +6,6 @@
     <title>music-player</title>
     <link rel="stylesheet" type="text/css" href="./styles.css">
     <script>
-        let mode = "download";
-
         function openTab(evt, tabName) {
           var i, tabcontent, tablinks;
           tabcontent = document.getElementsByClassName("tabcontent");
@@ -20,9 +18,10 @@
           }
           document.getElementById(tabName).style.display = "flex";
           evt.currentTarget.className += " active";
-          mode = mode == "download" ? "upload" : "download";
+          document.getElementById("upload-or-download").textContent = document.getElementById("upload-or-download").textContent == "download" ? "upload" : "download";
         }
     </script>
+   <div id="upload-or-download" style="display: none;">download</div>
   </head>
   <body>
     <div id="header">
@@ -75,12 +74,12 @@
         <div id="tab1" class="tabcontent">
             <div class="input">
                 <p class="text">Enter Path to File(s)</p>
-                <input type="text" id="files">
+                <input type="text" id="d-files">
             </div>
 
             <div class="input">
                 <p class="text">Select Download Destination</p>
-                <input type="file" id="destination" multiple="multiple">
+                <input type="file" id="d-destination" multiple="multiple">
             </div>
         </div>
 

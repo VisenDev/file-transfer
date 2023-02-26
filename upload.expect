@@ -1,0 +1,12 @@
+#!./expect -f
+
+set file        [lindex $argv 0];  
+set username    [lindex $argv 1];
+set server      [lindex $argv 2];
+set folder      [lindex $argv 3]
+set password    [lindex $argv 4];
+
+spawn scp "$file" "$username@$server:$folder"
+expect "ssword:"
+send "$password\n"
+expect eof

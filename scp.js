@@ -1,56 +1,88 @@
-/*const fs = require('fs');
-const {Client} = require('node-scp');
-const path = require('path')
+const { exec, spawn } = require('child_process');
+const path = require('path');
 
-console.log(Client);
+function upload(file, username, server, destination, password){
 
-async function uploadFiles(filepath, remoteFilepath, remoteServer, username, password) {
+  console.log("Beginning upload of " + file);
   try {
-    const client = await Client({
-      host: remoteServer,
-      port: 22,
-      username: username,
-      password: password,
-      // privateKey: fs.readFileSync('./key.pem'),
-      // passphrase: 'your key passphrase',
-    })
-    await client.uploadFile(
-      filepath,
-      remoteFilepath,
-      // options?: TransferOptions
-    )
-    // you can perform upload multiple times
-    //await client.uploadFile('./test.txt', '~/');
-    console.log("success");
-    client.close() // remember to close connection after you finish
-  } catch (e) {
-    console.log(e)
-  }
-}
 
+    const script = path.join(__dirname, 'upload.expect');
+    const expect = path.join(__dirname, 'expect');
+
+    console.log(script);
+    console.log(expect);
+    const scp = exec(`${expect} ${script} ${file} ${username} ${server} '${destination}' ${password}`);
+    console.log("Upload Success!");
+
+  } catch (err) {
+    console.log(err);
+  }  
+};
+
+document.getElementById("submit").addEventListener('click', ()=> {
+
+  if(document.getElementById("upload-or-download").textContent = "upload"){
+
+    let fileInput = document.getElementById('u-files');
+    let user = document.getElementById('username').value;
+    let host = document.getElementById('server').value;
+    let destination = document.getElementById('u-destination').value;
+    let password = document.getElementById('password').value;
+
+    for(let t = 0; t< fileInput.files.length; ++t){
+      upload(fileInput.files[t].path, user, host, destination, password);
+    }
+  }
+
+});
+
+//upload("./test.txt", "rburnett5", "csunix.angelo.edu", "'~/'", "JohnSmith_8080");
+
+
+
+
+
+
+/*
 document.getElementById('submit').onclick = function () {
-  // Example usage:
-  const fileInput = document.getElementById('u-files');
-  let filepaths = fileInput.files[0].path;
 
-  if (fileInput.files.length > 1) {
-    filepaths = Array.from(fileInput.files)
-      .map((file) => file.path)
-      .join(' ');
+  if(true){
+
+    console.log(mode);
+
+    const fileInput = document.getElementById('u-files');
+
+    for(let t = 0; t < fileInput.files.length; ++t){
+      var options = {
+        file: fileInput.files[t].path,
+        user: document.getElementById('username').value,
+        host: document.getElementById('server').value,
+        port: '22',
+        path:  document.getElementById('u-destination').value
+      };
+
+      console.log("beginning upload");
+
+      scp.send(options, function (err) {
+        if (err) console.log(err);
+        else console.log('File transferred.');
+      });
+      
+    }
   }
+};
 
-  const remoteDirectory = document.getElementById('u-destination').value;
-  const remoteServer = document.getElementById('u-server').value;
-  const username = document.getElementById('u-username').value;
-  const password = document.getElementById('u-password').value;
+var options = {
+  file: "./test.txt",
+  user: rburnett5,
+  host: document.getElementById('server').value,
+  port: '22',
+  path:  document.getElementById('u-destination').value
+};
 
-  if(mode == "upload")
-  //document.getElementById("myFile").files[0].path
-  uploadFiles(filepaths, remoteDirectory, remoteServer, username, password);
-};*/
+console.log("beginning upload");
 
-
-//uploadFiles(, 'test.txt', 'csunix.angelo.edu', 'rburnett5', 'JohnSmith_8080');
-
-
-
+scp.send(options, function (err) {
+  if (err) console.log(err);
+  else console.log('File transferred.');
+});*/

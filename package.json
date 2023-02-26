@@ -10,5 +10,10 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^23.1.0"
+  },
+  "dependencies": {
+    "expect": "^29.4.3",
+    "path": "^0.12.7",
+    "scp": "^0.0.3"
   }
 }
